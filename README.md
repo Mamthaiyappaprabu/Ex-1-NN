@@ -1,7 +1,8 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : MAMTHA I </H3>
+<H3>ENTER YOUR REGISTER NO : 212222230076 </H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : </H3>
+
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -10,6 +11,7 @@ To perform Data preprocessing in a data set downloaded from Kaggle
 
 ## EQUIPMENTS REQUIRED:
 Hardware – PCs
+
 Anaconda – Python 3.7 Installation / Google Colab /Jupiter Notebook
 
 ## RELATED THEORETICAL CONCEPT:
@@ -29,19 +31,166 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
-STEP 1:Importing the libraries<BR>
-STEP 2:Importing the dataset<BR>
-STEP 3:Taking care of missing data<BR>
-STEP 4:Encoding categorical data<BR>
-STEP 5:Normalizing the data<BR>
-STEP 6:Splitting the data into test and train<BR>
+### STEP 1: 
+Importing the libraries<BR>
+
+###  STEP 2:
+Importing the dataset<BR>
+
+###  STEP 3:
+Taking care of missing data<BR>
+
+###  STEP 4:
+Encoding categorical data<BR>
+
+###  STEP 5:
+Normalizing the data<BR>
+
+### STEP 6:
+Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+
+### IMPORT ALL LIBRARIES : 
+```
+from google.colab import files
+import pandas as pd
+import seaborn as sns
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from scipy import stats
+import numpy as np
+
+```
+### READ THE DATASET:
+```
+df=pd.read_csv("/content/Churn_Modelling (1).csv")
+```
+###  PRINTING HEAD & TAIL :
+```
+df.head()
+df.tail()
+df.columns
+```
+### CHECKING THE MISSING DATA :
+```
+df.isnull().sum()
+```
+### CHECKING FOR DUPLICATES :
+```
+df.duplicated()
+```
+
+### Y VALUE :
+```
+y = df.iloc[:, -1].values
+print(y)
+```
+### CHECKING FOR OUTLIERS :
+```
+df.describe()
+```
+### DROPPING STRING VALUES :
+```
+data = df.drop(['Surname', 'Geography','Gender'], axis=1)
+
+data.head()
+
+```
+### NORMALIZE THE DATA SET :
+```
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+```
+### SPLIT THE DATASET :
+```
+X=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(X)
+print(y)
+```
+### TRAINING AND TESTING THE DATASET MODEL :
+
+```
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+print("X_train\n")
+print(X_train)
+print("\nLenght of X_train ",len(X_train))
+print("\nX_test\n")
+print(X_test)
+print("\nLenght of X_test ",len(X_test))
+
+```
+
+
+
+
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+***DATA SET:***
+
+
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/103a33b0-e360-4814-8ef5-9bf8faf83683)
+
+
+***FINDING ALL MISSING VALUE:***
+
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/f7ba5cc1-f38c-4f6c-b7b6-d69050d3f297)
+
+
+***CHECKING THE DUPLICATE VALUES:***
+
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/29e2a9b0-3308-4bc9-ae10-412ee8e2e9ea)
+
+
+***DECTECT OUTLIERS:***
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/a65b5e85-be00-4477-a6b8-01852ef96915)
+
+
+***NORMALIZE THE DATASETS:***
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/3c59b074-278b-420f-9567-adb8db47bdba)
+
+
+***SPLITING THE DATASETS INTO INPUT AND OUPUT:***
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/a1f5e191-ad7f-4328-927c-cec538e33ea9)
+
+
+***SPLITING THE DATASETS FOR TRAINING AND TESTING :***
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/164e5051-721c-43b2-8f0f-84dfd3b72bcb)
+
+
+
+![image](https://github.com/Mamthaiyappaprabu/Ex-1-NN/assets/119393563/f8861104-af34-4b1d-917a-d312ee6660dc)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## RESULT:
